@@ -35,23 +35,48 @@ function sempress_child_enqueue_scripts()
     true
   );
 
-  $parenthandle = 'sempress-style';
+  $parent_handle = 'sempress-style';
   wp_enqueue_style(
-    $parenthandle,
+    $parent_handle,
     get_template_directory_uri() . '/style.css',
     array(),  // If the parent theme code has a dependency, copy it to here.
     $theme->parent()->get('Version')
   );
+
+  $child_handle = 'child-style';
   wp_enqueue_style(
-    'child-style',
+    $child_handle,
     get_stylesheet_uri(),
-    array($parenthandle),
+    array($parent_handle),
     $theme->get('Version')
   );
+
   wp_enqueue_style(
-    'dark-mode-toggle',
-    get_stylesheet_directory_uri() . '/css/dark-mode-toggle.css',
-    array($parenthandle),
+    'dark-mode-toggle-style',
+    get_theme_file_uri('/css/dark-mode-toggle.css'),
+    array($parent_handle),
+    $theme->get('Version')
+  );
+
+  wp_enqueue_style(
+    'typography-style',
+    get_theme_file_uri('/css/typography.css'),
+    array($child_handle),
+    $theme->get('Version')
+  );
+
+  $colors_handle = 'colors-style';
+  wp_enqueue_style(
+    $colors_handle,
+    get_theme_file_uri('/css/colors.css'),
+    array($child_handle),
+    $theme->get('Version')
+  );
+
+  wp_enqueue_style(
+    'utilities-style',
+    get_theme_file_uri('/css/utilities.css'),
+    array($colors_handle),
     $theme->get('Version')
   );
 }
@@ -73,4 +98,9 @@ function dark_mode_toggle()
     </svg>
   </label>
 <?php
+}
+
+function sempress_customize_css()
+{
+  //Override the parent theme to remove custom colors
 }

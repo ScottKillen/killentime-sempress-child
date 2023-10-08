@@ -10,16 +10,84 @@ Tags:         custom-menu, custom-colors, custom-header, custom-background, cust
 Text Domain:  sempresschild
 */
 
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  color: var(--color-tx-normal);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-action);
+  border-color: var(--color-action);
+}
+
+a:focus {
+  outline: none;
+  background-color: var(--color-bg-hover);
+}
+
+a.plain,
+a.muted {
+  text-decoration: none;
+}
+
+tr {
+  border-bottom: 1px solid var(--color-ui-active);
+}
+
 nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.left {
-  text-align: left;
+body {
+  text-shadow: none;
 }
 
-.right {
-  text-align: right;
+#site-title {
+  font-weight: var(--fw-heading);
+}
+
+#site-description {
+  font-weight: 400;
+}
+
+#access, .widget {
+  border-bottom-color: var(--color-tx-muted);
+  box-shadow: none;
+}
+
+article.page,
+article.post,
+article.attachment {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-ui-normal);
+}
+
+.entry-content,
+.entry-summary,
+.entry-title {
+  color: var(--color-tx-normal);
+}
+
+.entry-meta,
+.entry-meta a {
+  color: var(--color-tx-muted);
+}
+
+.entry-content a, .entry-summary a, .entry-title a {
+    color: var(--color-bl);
+}
+
+.entry-content a:hover, .entry-summary a:hover, .entry-title a:hover {
+    color: var(--color-bl-hover);
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-ui-normal);
 }
