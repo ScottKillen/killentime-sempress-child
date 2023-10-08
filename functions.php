@@ -25,8 +25,17 @@ defined('ABSPATH') || exit;
 add_action('wp_enqueue_scripts', 'sempress_child_enqueue_scripts');
 function sempress_child_enqueue_scripts()
 {
+  $theme = wp_get_theme();
+
+  wp_enqueue_script(
+    'color-modes',
+    get_stylesheet_directory_uri() . '/js/dark-mode-toggle.js',
+    array(),
+    $theme->get('Version'),
+    true
+  );
+
   $parenthandle = 'sempress-style';
-  $theme        = wp_get_theme();
   wp_enqueue_style(
     $parenthandle,
     get_template_directory_uri() . '/style.css',
@@ -39,4 +48,15 @@ function sempress_child_enqueue_scripts()
     array($parenthandle),
     $theme->get('Version') // This only works if you have Version defined in the style header.
   );
+}
+
+add_action('wp_footer', 'dark_mode_toggle');
+function dark_mode_toggle()
+{
+?>
+  <label class="switch">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider round"></span>
+  </label>
+<?php
 }
