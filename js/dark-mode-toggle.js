@@ -1,42 +1,76 @@
 // Check if dark mode is stored in a cookie and apply it
-const darkModeCookie = getCookie('darkMode');
-if (darkModeCookie === 'true') {
-  document.documentElement.setAttribute('theme', 'dark');
-  document.getElementById('darkModeToggle').checked = true;
-}
+(() => {
+  'use strict';
 
-// Event listener for the toggle button
-document
-  .getElementById('darkModeToggle')
-  .addEventListener('change', function () {
-    if (this.checked) {
+  const getStoredTheme = () => localStorage.getItem('theme');
+  const setStoredTheme = (theme) => localStorage.setItem('theme', theme);
+
+  const getPreferredTheme = () => {
+    const storedTheme = getStoredTheme();
+    if (storedTheme) {
+      return storedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  };
+
+  const setTheme = (theme) => {
+    if (
+      theme === 'auto' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
       document.documentElement.setAttribute('theme', 'dark');
-      setCookie('darkMode', 'true', 365); // Store dark mode in a cookie for 365 days
     } else {
-      document.documentElement.setAttribute('theme', 'light');
-      setCookie('darkMode', 'false', 365);
+      document.documentElement.setAttribute('theme', theme);
     }
+  };
+
+  setTheme(getPreferredTheme());
+
+  const showActiveTheme = (theme, focus = false) => {
+    const themeSwitcher = document.getElementById('darkModeToggle');
+
+    if (!themeSwitcher) {
+      return;
+    }
+
+    if (theme === 'dark') {
+      themeSwitcher.checked = true;
+    } else {
+      themeSwitcher.checked = false;
+    }
+
+    if (focus) {
+      themeSwitcher.focus();
+    }
+  };
+
+  showActiveTheme(getPreferredTheme());
+
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', () => {
+      const storedTheme = getStoredTheme();
+      if (storedTheme !== 'light' && storedTheme !== 'dark') {
+        setTheme(getPreferredTheme());
+      }
+    });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    showActiveTheme(getPreferredTheme());
+
+    document.getElementById('darkModeToggle').addEventListener('change', () => {
+      const themeSwitcher = document.getElementById('darkModeToggle');
+      var theme = 'light';
+      if (themeSwitcher.checked) {
+        theme = 'dark';
+      }
+
+      setStoredTheme(theme);
+      setTheme(theme);
+      showActiveTheme(theme, true);
+    });
   });
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-}
-
-// Function to get a cookie value
-function getCookie(name) {
-  const cookieName = `${name}=`;
-  const cookies = document.cookie.split(';');
-  for (let i = 0; i < cookies.length; i++) {
-    let cookie = cookies[i];
-    while (cookie.charAt(0) === ' ') {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(cookieName) === 0) {
-      return cookie.substring(cookieName.length, cookie.length);
-    }
-  }
-  return '';
-}
+})();
