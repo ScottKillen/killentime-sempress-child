@@ -56,7 +56,7 @@ defined('ABSPATH') || exit;
 					<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
 				</div>
 				<div class="right">
-					<?php do_action('dark_mode_toggle', ''); ?>
+					<?php dark_mode_toggle(); ?>
 				</div>
 			</nav><!-- #access -->
 		</header><!-- #branding -->
