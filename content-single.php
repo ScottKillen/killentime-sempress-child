@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
 <article <?php sempress_post_id(); ?> <?php post_class(); ?><?php sempress_semantics('post'); ?> itemref="site-publisher">
 	<?php get_template_part('entry', 'header'); ?>
 
-	<?php if (is_search() || is_home()) : // Only display Excerpts for Search
+	<?php if (is_search() || is_home() || is_archive()) : // Only display Excerpts in these cases
 	?>
 		<div class="entry-summary p-summary" itemprop="description">
 			<?php custom_post_excerpt(); ?>
