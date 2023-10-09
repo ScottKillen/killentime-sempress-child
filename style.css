@@ -112,3 +112,10 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   border-color: var(--color-ui-normal);
   transition: border-color 1s, background-color 1s;
 }
+
+.page-header .avatar {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -85px;
+}
