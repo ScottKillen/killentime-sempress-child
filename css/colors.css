@@ -120,38 +120,46 @@
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-tx-normal);
+  transition: color 1s, background-color 1s;
 }
 
 mark {
   background-color: var(--color-highlight);
   color: var(--color-tx-normal);
+  transition: color 1s, background-color 1s;
 }
 
 hr {
   background: var(--color-ui-normal);
+  transition: background 1s;
 }
 
 figcaption,
 figcaption a {
   color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 .muted,
 .muted a {
   color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 .faint {
   color: var(--color-tx-faint);
+  transition: color 1s;
 }
 
 .action {
   color: var(--color-action);
+  transition: color 1s;
 }
 
 pre,
 code {
   background: var(--color-bg-secondary);
+  transition: background 1s;
 }
 
 pre code {
@@ -167,6 +175,7 @@ h6 a,
 h1 a:visited,
 h1 a:link {
   color: var(--color-tx-normal);
+  transition: color 1s;
 }
 
 h1 a:hover,
@@ -176,6 +185,7 @@ h4 a:hover,
 h5 a:hover,
 h6 a:hover {
   color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 input,
@@ -183,20 +193,25 @@ textarea,
 select,
 label {
   color: var(--color-tx-normal);
+  transition: color 1s;
 }
 
 ::-webkit-input-placeholder {
-    color: var(--color-tx-muted)
+  color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 ::-moz-placeholder {
-    color: var(--color-tx-muted)
+  color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 ::-ms-placeholder {
-    color: var(--color-tx-muted)
+  color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 ::placeholder {
-    color: var(--color-tx-muted)
+  color: var(--color-tx-muted);
+  transition: color 1s;
 }

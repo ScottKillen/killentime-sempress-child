@@ -17,16 +17,19 @@ Text Domain:  sempresschild
 a {
   color: var(--color-tx-normal);
   text-decoration: underline;
+  transition: color 1s;
 }
 
 a:hover {
   color: var(--color-action);
   border-color: var(--color-action);
+  transition: color 1s, border-color 1s;
 }
 
 a:focus {
   outline: none;
   background-color: var(--color-bg-hover);
+  transition: background-color 1s;
 }
 
 a.plain,
@@ -36,6 +39,7 @@ a.muted {
 
 tr {
   border-bottom: 1px solid var(--color-ui-active);
+  transition: border-bottom 1s;
 }
 
 nav.navbar {
@@ -46,6 +50,14 @@ nav.navbar {
 
 body {
   text-shadow: none;
+  transition: background-image 1s;
+  background-image: url('img/light-bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+[theme='dark'] body {
+  background-image: url('img/dark-bg.jpg');
 }
 
 #site-title {
@@ -58,36 +70,45 @@ body {
 
 #access, .widget {
   border-bottom-color: var(--color-tx-muted);
+  transition: border-bottom-color 1s;
   box-shadow: none;
 }
 
 article.page,
 article.post,
 article.attachment {
-  background-color: var(--color-bg-secondary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(var(--color-bg-primary-rgb), 0.25);
   border-color: var(--color-ui-normal);
+  transition: border-color 1s, background-color 1s;
 }
 
 .entry-content,
 .entry-summary,
 .entry-title {
   color: var(--color-tx-normal);
+  transition: color 1s;
 }
 
 .entry-meta,
 .entry-meta a {
   color: var(--color-tx-muted);
+  transition: color 1s;
 }
 
 .entry-content a, .entry-summary a, .entry-title a {
     color: var(--color-bl);
+  transition: color 1s;
 }
 
 .entry-content a:hover, .entry-summary a:hover, .entry-title a:hover {
     color: var(--color-bl-hover);
+  transition: color 1s;
 }
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-ui-normal);
+  transition: border-color 1s, background-color 1s;
 }
