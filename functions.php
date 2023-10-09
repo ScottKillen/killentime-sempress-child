@@ -90,7 +90,7 @@ function custom_post_excerpt($post_id = null)
 {
   if ($post_id === null) {
     $post_id = get_the_ID(); // Get the current post ID in the loop
-}
+  }
 
   $post = get_post($post_id);
 
@@ -114,8 +114,8 @@ function custom_post_excerpt($post_id = null)
     }
   }
 
-  // Add "Read More" link
-  echo ' <a href="' . get_permalink($post->ID) . '">Read More</a>';
+  echo '<a href="' . esc_url(get_permalink(($post->ID))) . '" class="u-url more-link icon-link gap-1 icon-link-hover">Continue reading...<svg class="bi"><use xlink:href="#fa-chevron-right"/></svg></a>';
 }
 
 require_once 'dark-mode.php';
+require_once 'icons.php';

@@ -564,3 +564,41 @@ img.round {
   -webkit-backdrop-filter: blur(10px);
   background-color: rgba(var(--color-bg-primary-rgb), 0.25);
 }
+
+.d-none {
+  display: none !important;
+}
+
+.icon-link {
+    display: inline-flex;
+    gap: .375rem;
+    align-items: center;
+    -webkit-text-decoration-color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,0.5));
+    text-decoration-color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,0.5));
+    text-underline-offset: 0.25em;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.icon-link-hover:focus-visible>.bi,.icon-link-hover:hover>.bi {
+    transform: var(--bs-icon-link-transform,translate3d(.25em,0,0))
+}
+
+.icon-link>.bi {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    fill: currentcolor;
+    transition: .2s ease-in-out transform;
+}
+
+.bi {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentcolor;
+}
+
+.gap-1 {
+    gap: .25rem!important;
+}
