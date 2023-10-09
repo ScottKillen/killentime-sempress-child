@@ -86,9 +86,36 @@ function sempress_customize_css()
   //Override the parent theme to remove custom colors
 }
 
-function sempress_customize_css()
+function custom_post_excerpt($post_id = null)
 {
-  //Override the parent theme to remove custom colors
+  if ($post_id === null) {
+    $post_id = get_the_ID(); // Get the current post ID in the loop
+}
+
+  $post = get_post($post_id);
+
+  // Check if a manual excerpt is set
+  $manual_excerpt = get_post_meta($post->ID, '_excerpt', true);
+
+  if (!empty($manual_excerpt)) {
+    echo '<p>' . $manual_excerpt . '</p>';
+  } else {
+    // If no manual excerpt, check for "more" tag
+    $content = $post->post_content;
+    $more_position = strpos($content, '<!--more-->');
+
+    if ($more_position !== false) {
+      // Display content up to the "more" tag
+      echo substr($content, 0, $more_position);
+    } else {
+      // If neither manual excerpt nor "more" tag, display default excerpt
+      $default_excerpt = get_the_excerpt();
+      echo '<p>' . $default_excerpt . '</p>';
+    }
+  }
+
+  // Add "Read More" link
+  echo ' <a href="' . get_permalink($post->ID) . '">Read More</a>';
 }
 
 require_once 'dark-mode.php';
