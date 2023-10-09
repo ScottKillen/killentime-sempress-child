@@ -38,6 +38,7 @@ img.outline {
 
 img.round {
   border-radius: 50%;
+  overflow: clip;
 }
 
 .bg {
