@@ -1,0 +1,124 @@
+/* Basic Callout with Transparency */
+:root {
+    --callout-default: var(--flexoki-black-rgb);
+    --callout-border-opacity: 100%;
+    --callout-radius: 4px;
+    --callout-border-width: 0 0 0 var(--callout-radius);
+    --callout-blend-mode: darken;
+    --callout-padding: 1em; /* 12 px */
+    --callout-gap: .33em; /* 4px */
+    --callout-title-padding: 0;
+    --callout-title-size: inherit;
+    --callout-line-height: 1.3;
+    --callout-content-padding: 0;
+    --callout-content-background: transparent;
+    --callout-title-weight: bold;
+    --callout-title-color: inherit;
+}
+
+[theme='dark'] :root {
+    --callout-default: var(--flexoki-paper-rgb);
+    --callout-blend-mode: lighten;
+}
+
+.callout {
+    --callout-color: var(--callout-default);
+}
+
+.callout.callout-bug,
+.callout.callout-danger,
+.callout.callout-error,
+.callout.callout-failure,
+.callout.callout-fail,
+.callout.callout-missing,
+.callout.callout-red {
+    --callout-color: var(--color-re-rgb);
+}
+
+.callout.callout-warning,
+.callout.callout-caution,
+.callout.callout-attention,
+.callout.callout-question,
+.callout.callout-help,
+.callout.callout-faq,
+.callout.callout-orange {
+    --callout-color: var(--color-or-rgb);
+}
+
+.callout.callout-yellow {
+    --callout-color: var(--color-ye-rgb);
+}
+
+.callout.callout-success,
+.callout.callout-check,
+.callout.callout-done,
+.callout.callout-green {
+    --callout-color: var(--color-gr-rgb);
+}
+
+.callout.callout-abstract,
+.callout.callout-important,
+.callout.callout-hint,
+.callout.callout-tip,
+.callout.callout-summary,
+.callout.callout-cyan {
+    --callout-color: var(--color-cy-rgb);
+}
+
+.callout.callout-info,
+.callout.callout-primary,
+.callout.callout-todo,
+.callout.callout-blue {
+    --callout-color: var(--color-bl-rgb);
+}
+
+.callout.callout-example,
+.callout.callout-purple {
+    --callout-color: var(--color-pu-rgb);
+}
+
+.callout.callout-magenta {
+    --callout-color: var(--color-ma-rgb);
+}
+
+.callout.callout-quote,
+.callout.callout-cite,
+.callout.callout-secondary,
+.callout.callout-grey {
+  --callout-color: var(--color-tx-muted);
+}
+
+.callout {
+  overflow: hidden;
+  border-style: solid;
+  border-color: rgba(var(--callout-color), var(--callout-border-opacity));
+  border-width: var(--callout-border-width);
+  border-radius: var(--callout-radius);
+  margin: 1em 0;
+  mix-blend-mode: var(--callout-blend-mode);
+  background-color: rgba(var(--callout-color), 0.1);
+  padding: var(--callout-padding);
+}
+
+.callout .callout-title {
+  padding: var(--callout-title-padding);
+  color: --callout-title-color;
+  display: flex;
+  gap: var(--callout-gap);
+  font-size: var(--callout-title-size);
+  color: rgb(var(--callout-color));
+  font-weight: var(--callout-title-weight);
+  line-height: var(--callout-line-height);
+  align-items: flex-start;
+}
+
+.callout .callout-content {
+  overflow-x: auto;
+  padding: var(--callout-content-padding);
+  background-color: var(--callout-content-background);
+}
+
+/* Shadowed Callout with Transparency */
+.shadowed-callout {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

@@ -79,6 +79,13 @@ function sempress_child_enqueue_scripts()
     array($colors_handle),
     $theme->get('Version')
   );
+
+  wp_enqueue_style(
+    'callouts-style',
+    get_theme_file_uri('/css/callouts.css'),
+    array($colors_handle),
+    $theme->get('Version')
+  );
 }
 
 function sempress_customize_css()
