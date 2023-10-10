@@ -4,7 +4,6 @@
     --callout-border-opacity: 100%;
     --callout-radius: 4px;
     --callout-border-width: 0 0 0 var(--callout-radius);
-    --callout-blend-mode: darken;
     --callout-padding: 1em; /* 12 px */
     --callout-gap: .33em; /* 4px */
     --callout-title-padding: 0;
@@ -18,7 +17,6 @@
 
 [theme='dark'] :root {
     --callout-default: var(--flexoki-paper-rgb);
-    --callout-blend-mode: lighten;
 }
 
 .callout {
@@ -95,9 +93,9 @@
   border-width: var(--callout-border-width);
   border-radius: var(--callout-radius);
   margin: 1em 0;
-  mix-blend-mode: var(--callout-blend-mode);
   background-color: rgba(var(--callout-color), 0.1);
   padding: var(--callout-padding);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .callout .callout-title {
@@ -110,15 +108,11 @@
   font-weight: var(--callout-title-weight);
   line-height: var(--callout-line-height);
   align-items: flex-start;
+  text-shadow: 2px 2px rgba(0,0,0, 0.2);
 }
 
 .callout .callout-content {
   overflow-x: auto;
   padding: var(--callout-content-padding);
   background-color: var(--callout-content-background);
-}
-
-/* Shadowed Callout with Transparency */
-.shadowed-callout {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
