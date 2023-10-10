@@ -185,7 +185,7 @@ h4 a:hover,
 h5 a:hover,
 h6 a:hover {
   color: var(--color-tx-muted);
-  transition: color 1s;
+  transition: color 0s;
 }
 
 input,

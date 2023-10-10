@@ -17,19 +17,12 @@ Text Domain:  sempresschild
 a {
   color: var(--color-tx-normal);
   text-decoration: underline;
-  transition: color 1s;
+  transition: color 0;
 }
 
 a:hover {
   color: var(--color-action);
   border-color: var(--color-action);
-  transition: color 1s, border-color 1s;
-}
-
-a:focus {
-  outline: none;
-  background-color: var(--color-bg-hover);
-  transition: background-color 1s;
 }
 
 a.plain,
@@ -79,7 +72,7 @@ article.post,
 article.attachment {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-color: rgba(var(--color-bg-primary-rgb), 0.25);
+  background-color: rgba(var(--color-bg-primary-rgb), 0.5);
   border-color: var(--color-ui-normal);
   transition: border-color 1s, background-color 1s;
 }
@@ -104,7 +97,6 @@ article.attachment {
 
 .entry-content a:hover, .entry-summary a:hover, .entry-title a:hover {
     color: var(--color-bl-hover);
-  transition: color 1s;
 }
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
