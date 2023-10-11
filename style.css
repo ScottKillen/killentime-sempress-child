@@ -61,7 +61,8 @@ body {
   font-weight: 400;
 }
 
-#access, .widget {
+#access,
+.widget {
   border-bottom-color: var(--color-tx-muted);
   transition: border-bottom-color 1s;
   box-shadow: none;
@@ -75,6 +76,55 @@ article.attachment {
   background-color: rgba(var(--color-bg-primary-rgb), 0.5);
   border-color: var(--color-ui-normal);
   transition: border-color 1s, background-color 1s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.widget {
+  margin-bottom: 2em;
+}
+
+.widget:not(.widget_search) {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(var(--color-bg-primary-rgb), 0.3);
+  border-color: var(--color-ui-normal);
+  transition: border-color 1s, background-color 1s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 1em;
+  border-width: 0;
+}
+
+.widget.widget_search {
+  border-width: 0;
+  margin: 0;
+  padding-bottom: 1.5em;
+}
+
+[type=search]:focus {
+    color: var(--color-tx-normal);
+    background-color: var(--color-bg-primary);
+    border-color: #b1cdb1;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(var(--color-tx-normal),.25);
+}
+
+[type=search] {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-tx-normal);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--color-bg-primary);
+    background-clip: padding-box;
+    border: 1px solid var(--color-ui-normal);
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .entry-content,
@@ -90,24 +140,42 @@ article.attachment {
   transition: color 1s;
 }
 
-.entry-content a, .entry-summary a, .entry-title a {
-    color: var(--color-bl);
+.entry-content a,
+.entry-summary a,
+.entry-title a {
+  color: var(--color-bl);
   transition: color 1s;
 }
 
-.entry-content a:hover, .entry-summary a:hover, .entry-title a:hover {
-    color: var(--color-bl-hover);
+.entry-content a:hover,
+.entry-summary a:hover,
+.entry-title a:hover {
+  color: var(--color-bl-hover);
 }
 
-textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+textarea,
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'] {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-ui-normal);
   transition: border-color 1s, background-color 1s;
 }
 
 .page-header .avatar {
-    display: block;
-    position: absolute;
-    top: 5px;
-    left: -85px;
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -85px;
 }
