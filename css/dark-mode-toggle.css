@@ -8,7 +8,10 @@ html {
   display: block;
   cursor: pointer;
   margin-bottom: 0;
-  padding-top: .25em;
+  padding-top: 0.25em;
+  font-size: 1em;
+  color: var(--color-tx-normal);
+  justify-content:center;
 }
 
 .theme-toggle input[type='checkbox'] {
@@ -21,8 +24,8 @@ html {
 }
 
 .theme-toggle svg {
-    height: 1.5em;
-    width: 1.5em;
+  height: 1em;
+  width: 1em;
 }
 
 .theme-toggle__expand g circle,
