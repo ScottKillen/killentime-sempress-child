@@ -57,6 +57,14 @@ body {
   font-weight: var(--fw-heading);
 }
 
+#site-title a {
+  text-shadow: 2px 2px rgba(0,0,0, 0.2);
+}
+
+#site-title a:hover {
+  text-shadow: 4px 4px rgba(0,0,0, 0.8);
+}
+
 #site-description {
   font-weight: 400;
 }
