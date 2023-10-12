@@ -124,13 +124,37 @@ function custom_post_excerpt($post_id = null)
   echo '<a href="' . esc_url(get_permalink(($post->ID))) . '" class="u-url more-link icon-link gap-1 icon-link-hover">Continue reading...<svg class="bi"><use xlink:href="#fa-chevron-right"/></svg></a>';
 }
 
+function sempress_reading_time()
+{
+  // Getting the post content and stripping HTML tags
+  $content = strip_tags(get_the_content());
+  $content = html_entity_decode($content);
+
+  // Getting the number of words in the content
+  $word_count = str_word_count($content);
+
+  // Calculate the estimated reading time, considering 200 words per minute
+  $reading_time_minutes = ceil($word_count / 200);
+
+  // Determine the reading time string
+  if ($reading_time_minutes < 1) {
+    $reading_time = "Less than a minute";
+  } elseif ($reading_time_minutes === 1) {
+    $reading_time = "1 minute";
+  } else {
+    $reading_time = $reading_time_minutes . " minutes";
+  }
+  return $reading_time;
+}
+
+
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function sempress_posted_on()
 {
   printf(
-    __('<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span><a href="%1$s" title="%2$s" rel="bookmark" class="url u-url"><time class="entry-date updated published dt-updated dt-published" datetime="%3$s" itemprop="dateModified datePublished">%4$s</time></a> <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"> by </span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%5$s <a class="url uid u-url u-uid fn p-name" href="%6$s" title="%7$s" rel="author" itemprop="url"><span itemprop="name">%8$s</span></a></span></address>', 'sempress'),
+    '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span><a href="%1$s" title="%2$s" rel="bookmark" class="url u-url"><time class="entry-date updated published dt-updated dt-published" datetime="%3$s" itemprop="dateModified datePublished">%4$s</time></a> <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%5$s <a class="url uid u-url u-uid fn p-name" href="%6$s" title="%7$s" rel="author" itemprop="url"><span itemprop="name">%8$s</span></a></span></address> <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %9$s</span>',
     esc_url(get_permalink()),
     esc_attr(get_the_time()),
     esc_attr(get_the_date('c')),
@@ -138,7 +162,8 @@ function sempress_posted_on()
     get_avatar(get_the_author_meta('ID'), 90),
     esc_url(get_author_posts_url(get_the_author_meta('ID'))),
     esc_attr(sprintf(__('View all posts by %s', 'sempress'), get_the_author())),
-    esc_html(get_the_author())
+    esc_html(get_the_author()),
+    esc_html(sempress_reading_time())
   );
 }
 
