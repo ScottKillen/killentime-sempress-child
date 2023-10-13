@@ -35,12 +35,6 @@ tr {
   transition: border-bottom 1s;
 }
 
-nav.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 body {
   text-shadow: none;
   transition: background-image 1s;
