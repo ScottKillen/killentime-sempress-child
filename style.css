@@ -44,13 +44,13 @@ nav.navbar {
 body {
   text-shadow: none;
   transition: background-image 1s;
-  background-image: url('img/light-bg.jpg');
+  background-image: url('https://imagedelivery.net/0XfRl_9i2twIzyWa9HYA4g/30673316-3692-42fd-bf89-48e1cacae200/usercontent');
   background-attachment: fixed;
   background-size: cover;
 }
 
 [theme='dark'] body {
-  background-image: url('img/dark-bg.jpg');
+  background-image: url('https://imagedelivery.net/0XfRl_9i2twIzyWa9HYA4g/a7fc84dd-89ca-4b07-f14f-592bfd630900/usercontent');
 }
 
 #site-title {
