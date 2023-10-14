@@ -182,11 +182,21 @@ input[type='color'] {
   left: -85px;
 }
 
-.format-aside:before {
+.format-aside:before,
+.format-audio:before {
   content: '';
   display:none;
 }
 
 .format-audio .entry-content {
   padding-top: 34px;
+}
+
+.format-audio .icon {
+  font-size: 2em;
+  padding-right: 1em;
+}
+
+.format-audio .audio {
+  width: 100%;
 }

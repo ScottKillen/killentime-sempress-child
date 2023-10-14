@@ -161,7 +161,7 @@ function sempress_posted_on()
     esc_html(get_the_date()),
   );
 
-  if (!in_array(get_post_format(), array('aside'))) {
+  if (!in_array(get_post_format(), array('aside', 'audio', 'link', 'status'))) {
 
     printf(
       ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%1$s <a class="url uid u-url u-uid fn p-name" href="%2$s" title="%3$s" rel="author" itemprop="url"><span itemprop="name">%4$s</span></a></span></address>',
@@ -172,7 +172,7 @@ function sempress_posted_on()
     );
   }
 
-  if (!in_array(get_post_format(), array('aside'))) {
+  if (!in_array(get_post_format(), array('aside', 'audio'))) {
     printf(
       ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %1$s</span>',
       esc_html(sempress_reading_time())

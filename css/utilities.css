@@ -570,6 +570,14 @@ img.round {
   display: none !important;
 }
 
+.d-flex {
+  display: flex !important;
+}
+
+.flex-row {
+    flex-direction: row!important;
+}
+
 .icon-link {
     display: inline-flex;
     gap: .375rem;
