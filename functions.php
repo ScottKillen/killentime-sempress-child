@@ -154,21 +154,30 @@ function sempress_reading_time()
 function sempress_posted_on()
 {
   printf(
-    '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span><a href="%1$s" title="%2$s" rel="bookmark" class="url u-url"><time class="entry-date updated published dt-updated dt-published" datetime="%3$s" itemprop="dateModified datePublished">%4$s</time></a> <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%5$s <a class="url uid u-url u-uid fn p-name" href="%6$s" title="%7$s" rel="author" itemprop="url"><span itemprop="name">%8$s</span></a></span></address>',
+    '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span><a href="%1$s" title="%2$s" rel="bookmark" class="url u-url"><time class="entry-date updated published dt-updated dt-published" datetime="%3$s" itemprop="dateModified datePublished">%4$s</time></a>',
     esc_url(get_permalink()),
     esc_attr(get_the_time()),
     esc_attr(get_the_date('c')),
     esc_html(get_the_date()),
-    get_avatar(get_the_author_meta('ID'), 90),
-    esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-    esc_attr(sprintf(__('View all posts by %s', 'sempress'), get_the_author())),
-    esc_html(get_the_author())
   );
 
-  printf(
-    ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %1$s</span>',
-    esc_html(sempress_reading_time())
-  );
+  if (!in_array(get_post_format(), array('aside'))) {
+
+    printf(
+      ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%1$s <a class="url uid u-url u-uid fn p-name" href="%2$s" title="%3$s" rel="author" itemprop="url"><span itemprop="name">%4$s</span></a></span></address>',
+      get_avatar(get_the_author_meta('ID'), 90),
+      esc_url(get_author_posts_url(get_the_author_meta('ID'))),
+      esc_attr(sprintf(__('View all posts by %s', 'sempress'), get_the_author())),
+      esc_html(get_the_author())
+    );
+  }
+
+  if (!in_array(get_post_format(), array('aside'))) {
+    printf(
+      ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %1$s</span>',
+      esc_html(sempress_reading_time())
+    );
+  }
 }
 
 require_once 'dark-mode.php';
