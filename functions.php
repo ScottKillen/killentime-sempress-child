@@ -172,7 +172,7 @@ function sempress_posted_on()
     );
   }
 
-  if (!in_array(get_post_format(), array('aside', 'audio'))) {
+  if (!in_array(get_post_format(), array('aside', 'audio', 'chat'))) {
     printf(
       ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %1$s</span>',
       esc_html(sempress_reading_time())
