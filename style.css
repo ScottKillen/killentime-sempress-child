@@ -225,6 +225,19 @@ input[type='color'] {
   margin-right: 33%;
 }
 
+.format-audio .entry-summary {
+  padding-top: 34px;
+}
+
+.format-audio .entry-media img {
+  margin-top: 0;
+}
+
+.format-audio iframe {
+  margin-top: 1em;
+}
+
+.format-audio .entry-media,
 .format-gallery .entry-media {
   width: 200px;
 }
