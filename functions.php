@@ -180,5 +180,83 @@ function sempress_posted_on()
   }
 }
 
+function get_first_image_id($post = null)
+{
+  $post = get_post($post);
+
+  if (!$post) {
+    return false;
+  }
+
+  $blocks = parse_blocks($post->post_content);
+
+  $images = array_filter($blocks, function ($block) {
+    return 'core/image' === $block['blockName'];
+  });
+
+  return count($images) > 0 ? $images[0]['attrs']['id'] : false;
+}
+
+function get_first_image_from_first_gallery($post_id = null)
+{
+  $post_id = get_post($post_id);
+  $galleries = get_post_galleries($post_id, false);
+
+  if (!empty($galleries)) {
+    $first_gallery = reset($galleries);
+
+    if (!empty($first_gallery)) {
+      $image_ids = explode(',', $first_gallery['ids']);
+
+      return empty($image_ids[0]) ? false : $image_ids[0];
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Adds post-thumbnail support :)
+ *
+ * @since SemPress 1.0.0
+ */
+function child_the_post_thumbnail($before = '', $after = '')
+{
+  if ('' != get_the_post_thumbnail()) {
+    $imageID = get_post_thumbnail_id();
+  } else {
+    $imageID = get_first_image_id();
+  }
+
+  if (!$imageID) {
+    $imageID = get_first_image_from_first_gallery();
+  }
+
+  if (!$imageID) {
+    return;
+  }
+
+  $image = wp_get_attachment_image_src($imageID, 'thumbnail');
+
+  if (!$image) {
+    return;
+  }
+
+  $class = 'photo';
+
+  $post_format = get_post_format();
+
+  // use `u-photo` on photo/gallery posts
+  if (in_array($post_format, array('image', 'gallery'))) {
+    $class .= ' u-photo';
+  } else { // otherwise use `u-featured`
+    $class .= ' u-featured';
+  }
+
+  echo $before;
+  echo wp_get_attachment_image($imageID, 'thumbnail', false, array('class' => $class, 'itemprop' => 'image'));
+  echo $after;
+}
+
 require_once 'dark-mode.php';
 require_once 'icons.php';

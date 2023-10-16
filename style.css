@@ -184,7 +184,8 @@ input[type='color'] {
 
 .format-aside:before,
 .format-audio:before,
-.format-chat:before {
+.format-chat:before,
+.format-gallery:before {
   content: '';
   display:none;
 }
@@ -222,4 +223,8 @@ input[type='color'] {
   background-color: rgba(var(--color-bl-rgb), 0.7);
   border-color: var(--color-bl);
   margin-right: 33%;
+}
+
+.format-gallery .entry-media {
+  width: 200px;
 }
