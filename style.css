@@ -241,7 +241,20 @@ input[type='color'] {
   margin-top: 1em;
 }
 
+.format-aside .entry-media,
 .format-audio .entry-media,
 .format-gallery .entry-media {
-  width: 200px;
+  width: 100px;
+}
+
+.format-quote .entry-header .entry-title,
+.format-video .entry-header .entry-title,
+.format-audio .entry-header .entry-title,
+.format-image .entry-header .entry-title,
+.format-quote .entry-header .entry-title a,
+.format-video .entry-header .entry-title a,
+.format-audio .entry-header .entry-title a,
+.format-image .entry-header .entry-title a {
+  font-size: 40px;
+  padding-top: 25px;
 }
