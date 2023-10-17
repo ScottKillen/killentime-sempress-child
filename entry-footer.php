@@ -2,7 +2,7 @@
 
 <footer class="entry-meta">
 	<?php
-	if (in_array(get_post_format(), array('aside', 'link', 'status', 'quote', 'audio')) || !get_the_title()) {
+	if (in_array(get_post_format(), array('link', 'status', 'quote', 'audio')) || !get_the_title()) {
 		sempress_posted_on();
 	} else {
 		_e('Posted', 'sempress');
@@ -16,7 +16,7 @@
 		<span class="cat-links">
 			<?php printf(__('in %1$s', 'sempress'), $categories_list); ?>
 		</span>
-	<?php endif; // End if categories 
+	<?php endif; // End if categories
 	?>
 
 	<?php
@@ -28,7 +28,7 @@
 		<span class="tag-links" itemprop="keywords">
 			<?php printf(__('Tagged %1$s', 'sempress'), $tags_list); ?>
 		</span>
-	<?php endif; // End if $tags_list 
+	<?php endif; // End if $tags_list
 	?>
 
 	<?php do_action('sempress_entry_footer'); ?>

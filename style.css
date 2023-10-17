@@ -187,7 +187,11 @@ input[type='color'] {
 .format-chat:before,
 .format-gallery:before {
   content: '';
-  display:none;
+  display: none;
+}
+
+.format-aside .entry-media {
+  width: 100px;
 }
 
 .format-audio .entry-content {
@@ -211,14 +215,14 @@ input[type='color'] {
   color: var(--flexoki-paper);
 }
 
-.format-chat .chat-content p:nth-child(odd){
+.format-chat .chat-content p:nth-child(odd) {
   border-bottom-right-radius: 0;
   background-color: rgba(var(--color-re-rgb), 0.7);
   border-color: var(--color-re);
   margin-left: 33%;
 }
 
-.format-chat .chat-content p:nth-child(even){
+.format-chat .chat-content p:nth-child(even) {
   border-bottom-left-radius: 0;
   background-color: rgba(var(--color-bl-rgb), 0.7);
   border-color: var(--color-bl);
