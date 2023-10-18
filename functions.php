@@ -88,10 +88,43 @@ function sempress_child_enqueue_scripts()
   );
 }
 
+/**
+ * Display the blog cover image and author information for a post.
+ *
+ * This function checks if a post has a featured image and displays it as the blog cover.
+ * If there is no featured image, it displays author information without a cover.
+ */
+function sempress_the_blog_cover()
+{
+  $thumbnail = get_the_post_thumbnail();
+
+  if (!empty($thumbnail)) {
+    // Display the blog cover with the featured image.
+    $image = get_post_thumbnail_id();
+    $image_src = wp_get_attachment_image_src($image, 'post-thumbnail');
+
+    if ($image_src) {
+      $image_url = $image_src[0];
+
+?>
+      <div class="blog-cover" style="background: url('<?php echo $image_url; ?>'); background-size: 100% auto">
+      </div>
+<?php
+    }
+  }
+}
+
 function sempress_customize_css()
 {
   //Override the parent theme to remove custom colors
 }
+
+function custom_excerpt_more($more)
+{
+  global $post;
+  return '…';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
 
 function custom_post_excerpt($post_id = null)
 {

@@ -181,9 +181,18 @@ mark {
 }
 
 hr {
+  border: none;
+  height: 1px; /* Adjust the height as needed */
+  background: linear-gradient(to right, transparent, rgba(var(--color-tx-muted),80%), transparent);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  margin-block-end: 20px;
+}
+
+/*hr {
   background: var(--color-ui-normal);
   transition: background 1s;
-}
+}*/
 
 figcaption,
 figcaption a {
