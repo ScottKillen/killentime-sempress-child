@@ -147,36 +147,50 @@ function sempress_reading_time()
   return $reading_time;
 }
 
-
 /**
- * Prints HTML with meta information for the current post-date/time and author.
+ * Display post metadata including publication date, author information, and reading time.
+ *
+ * This function is used to generate HTML content for displaying various post metadata, including:
+ * - Publication date
+ * - Author information (optional)
+ * - Estimated reading time (optional)
+ *
+ * @param bool $echo                 Whether to echo the generated content (default is true).
+ * @param bool $include_author       Whether to include author information (default is true).
+ * @param bool $include_reading_time Whether to include estimated reading time (default is true).
+ *
+ * @return string|null Generated HTML content if $echo is false, or null if $echo is true.
  */
-function sempress_posted_on()
+function sempress_posted_on($echo = true, $include_author = true, $include_reading_time = true)
 {
-  printf(
-    '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span><a href="%1$s" title="%2$s" rel="bookmark" class="url u-url"><time class="entry-date updated published dt-updated dt-published" datetime="%3$s" itemprop="dateModified datePublished">%4$s</time></a>',
-    esc_url(get_permalink()),
-    esc_attr(get_the_time()),
-    esc_attr(get_the_date('c')),
-    esc_html(get_the_date()),
-  );
+  $output = '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span>';
+  $output .= '<a href="' . esc_url(get_permalink()) . '" title="' . esc_attr(get_the_time()) . '" rel="bookmark" class="url u-url">';
+  $output .= '<time class="entry-date updated published dt-updated dt-published" datetime="' . esc_attr(get_the_date('c')) . '" itemprop="dateModified datePublished">';
+  $output .= esc_html(get_the_date()) . '</time></a>';
 
-  if (!in_array(get_post_format(), array('audio', 'link', 'status'))) {
+  if ($include_author) {
+    $author_avatar = get_avatar(get_the_author_meta('ID'), 90);
+    $author_url = esc_url(get_author_posts_url(get_the_author_meta('ID')));
+    $author_name = esc_attr(sprintf(__('View all posts by %s', 'sempress'), get_the_author()));
+    $author_display_name = esc_html(get_the_author());
 
-    printf(
-      ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <address class="byline"> <span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span> <span class="author p-author vcard hcard h-card" itemprop="author " itemscope itemtype="http://schema.org/Person">%1$s <a class="url uid u-url u-uid fn p-name" href="%2$s" title="%3$s" rel="author" itemprop="url"><span itemprop="name">%4$s</span></a></span></address>',
-      get_avatar(get_the_author_meta('ID'), 90),
-      esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-      esc_attr(sprintf(__('View all posts by %s', 'sempress'), get_the_author())),
-      esc_html(get_the_author())
-    );
+    $output .= ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg>';
+    $output .= '<address class="byline"><span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span>';
+    $output .= '<span class="author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">';
+    $output .= $author_avatar . ' <a class="url uid u-url u-uid fn p-name" href="' . $author_url . '" title="' . $author_name . '" rel="author" itemprop="url">';
+    $output .= '<span itemprop="name">' . $author_display_name . '</span></a></span></address>';
   }
 
-  if (!in_array(get_post_format(), array('aside', 'audio', 'chat'))) {
-    printf(
-      ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg> <span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> %1$s</span>',
-      esc_html(sempress_reading_time())
-    );
+  if ($include_reading_time) {
+    $reading_time = esc_html(sempress_reading_time());
+    $output .= ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg>';
+    $output .= '<span class="reading-time"><svg class="bi"><title>Reading time</title><use xlink:href="#fa-book-open-reader" /></svg> ' . $reading_time . '</span>';
+  }
+
+  if ($echo) {
+    echo $output;
+  } else {
+    return $output;
   }
 }
 
