@@ -3,7 +3,7 @@
 <?php if (get_the_title()) : ?>
 	<header class="entry-header">
 		<?php
-	if (is_home() && !in_array(get_post_format(), array('chat'))) {
+	if (is_home() && !in_array(get_post_format(), array('chat', 'image'))) {
 			sempress_the_blog_cover();
 		}
 		?>

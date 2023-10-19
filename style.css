@@ -198,7 +198,8 @@ input[type='color'] {
 .format-aside:before,
 .format-audio:before,
 .format-chat:before,
-.format-gallery:before {
+.format-gallery:before,
+.format-image:before {
   content: '';
   display: none;
 }
