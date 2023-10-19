@@ -3,7 +3,7 @@
 <?php if (get_the_title()) : ?>
 	<header class="entry-header">
 		<?php
-		if (is_home()) {
+	if (is_home() && !in_array(get_post_format(), array('chat'))) {
 			sempress_the_blog_cover();
 		}
 		?>
@@ -12,7 +12,7 @@
 		<?php if ('post' === get_post_type()) : ?>
 			<div class="entry-meta">
 				<?php
-				$show_reading_time = !in_array(get_post_format(), array('aside', 'audio'));
+			$show_reading_time = !in_array(get_post_format(), array('aside', 'audio', 'chat'));
 				sempress_posted_on($show_reading_time);
 				?>
 			</div><!-- .entry-meta -->

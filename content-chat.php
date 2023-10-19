@@ -1,5 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
+?>
 
 <article <?php sempress_post_id(); ?> <?php post_class(); ?><?php sempress_semantics('post'); ?>>
 	<?php get_template_part('entry', 'header'); ?>
