@@ -2,12 +2,6 @@
 
 <footer class="entry-meta">
 	<?php
-	if (in_array(get_post_format(), array('status')) || !get_the_title()) {
-		sempress_posted_on();
-	}
-	?>
-
-	<?php
 	/* translators: used between list items, there is a space after the comma */
 	$tags_list = get_the_tag_list('', __(', ', 'sempress'));
 	if ($tags_list) :
