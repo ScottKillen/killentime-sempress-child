@@ -224,7 +224,8 @@ input[type='color'] {
 .format-gallery:before,
 .format-image:before,
 .format-link:before,
-.format-quote:before {
+.format-quote:before,
+.format-video:before {
   content: '';
   display: none;
 }
