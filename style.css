@@ -166,6 +166,10 @@ header .entry-meta {
   font-family: var(--font-ui);
 }
 
+.entry-summary {
+  margin-bottom: 20px;
+}
+
 .entry-content a,
 .entry-summary a,
 .entry-title a {
