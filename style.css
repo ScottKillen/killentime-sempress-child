@@ -89,6 +89,7 @@ article.attachment {
 
 .widget {
   margin-bottom: 2em;
+  font-family: var(--font-ui);
 }
 
 .widget:not(.widget_search) {
@@ -200,7 +201,7 @@ input[type='color'] {
 .format-chat:before,
 .format-gallery:before,
 .format-image:before,
-.format-link:before{
+.format-link:before {
   content: '';
   display: none;
 }
@@ -231,6 +232,7 @@ input[type='color'] {
   padding: 1em;
   box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
   color: var(--flexoki-paper);
+  font-family: var(--font-mono);
 }
 
 .format-chat .chat-content p:nth-child(odd) {

@@ -1,7 +1,8 @@
 :root {
-  --font-content: 'Inter', sans-serif;
-  --font-heading: var(--font-content);
+  --font-heading: 'Inter', sans-serif;
+  --font-content: 'Merriweather', serif;
   --font-mono: 'Source Code Pro', monospace;
+  --font-ui: var(--font-heading);
   --fw-heading: 500;
 }
 

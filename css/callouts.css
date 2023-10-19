@@ -1,26 +1,26 @@
 /* Basic Callout with Transparency */
 :root {
-    --callout-default: var(--flexoki-black-rgb);
-    --callout-border-opacity: 100%;
-    --callout-radius: 4px;
-    --callout-border-width: 0 0 0 var(--callout-radius);
-    --callout-padding: 1em; /* 12 px */
-    --callout-gap: .33em; /* 4px */
-    --callout-title-padding: 0;
-    --callout-title-size: inherit;
-    --callout-line-height: 1.3;
-    --callout-content-padding: 0;
-    --callout-content-background: transparent;
-    --callout-title-weight: bold;
-    --callout-title-color: inherit;
+  --callout-default: var(--flexoki-black-rgb);
+  --callout-border-opacity: 100%;
+  --callout-radius: 4px;
+  --callout-border-width: 0 0 0 var(--callout-radius);
+  --callout-padding: 1em; /* 12 px */
+  --callout-gap: 0.33em; /* 4px */
+  --callout-title-padding: 0;
+  --callout-title-size: inherit;
+  --callout-line-height: 1.3;
+  --callout-content-padding: 0;
+  --callout-content-background: transparent;
+  --callout-title-weight: bold;
+  --callout-title-color: inherit;
 }
 
 [theme='dark'] :root {
-    --callout-default: var(--flexoki-paper-rgb);
+  --callout-default: var(--flexoki-paper-rgb);
 }
 
 .callout {
-    --callout-color: var(--callout-default);
+  --callout-color: var(--callout-default);
 }
 
 .callout.callout-bug,
@@ -30,7 +30,7 @@
 .callout.callout-fail,
 .callout.callout-missing,
 .callout.callout-red {
-    --callout-color: var(--color-re-rgb);
+  --callout-color: var(--color-re-rgb);
 }
 
 .callout.callout-warning,
@@ -40,18 +40,18 @@
 .callout.callout-help,
 .callout.callout-faq,
 .callout.callout-orange {
-    --callout-color: var(--color-or-rgb);
+  --callout-color: var(--color-or-rgb);
 }
 
 .callout.callout-yellow {
-    --callout-color: var(--color-ye-rgb);
+  --callout-color: var(--color-ye-rgb);
 }
 
 .callout.callout-success,
 .callout.callout-check,
 .callout.callout-done,
 .callout.callout-green {
-    --callout-color: var(--color-gr-rgb);
+  --callout-color: var(--color-gr-rgb);
 }
 
 .callout.callout-abstract,
@@ -60,23 +60,23 @@
 .callout.callout-tip,
 .callout.callout-summary,
 .callout.callout-cyan {
-    --callout-color: var(--color-cy-rgb);
+  --callout-color: var(--color-cy-rgb);
 }
 
 .callout.callout-info,
 .callout.callout-primary,
 .callout.callout-todo,
 .callout.callout-blue {
-    --callout-color: var(--color-bl-rgb);
+  --callout-color: var(--color-bl-rgb);
 }
 
 .callout.callout-example,
 .callout.callout-purple {
-    --callout-color: var(--color-pu-rgb);
+  --callout-color: var(--color-pu-rgb);
 }
 
 .callout.callout-magenta {
-    --callout-color: var(--color-ma-rgb);
+  --callout-color: var(--color-ma-rgb);
 }
 
 .callout.callout-quote,
@@ -104,11 +104,12 @@
   display: flex;
   gap: var(--callout-gap);
   font-size: var(--callout-title-size);
+  font-family: var(--font-heading);
   color: rgb(var(--callout-color));
   font-weight: var(--callout-title-weight);
   line-height: var(--callout-line-height);
   align-items: flex-start;
-  text-shadow: 2px 2px rgba(0,0,0, 0.2);
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .callout .callout-content {
