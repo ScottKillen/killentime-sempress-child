@@ -8,16 +8,6 @@
 		_e('Posted', 'sempress');
 	}
 	?>
-	<?php
-	/* translators: used between list items, there is a space after the comma */
-	$categories_list = get_the_category_list(__(', ', 'sempress'));
-	if ($categories_list) :
-	?>
-		<span class="cat-links">
-			<?php printf(__('in %1$s', 'sempress'), $categories_list); ?>
-		</span>
-	<?php endif; // End if categories
-	?>
 
 	<?php
 	/* translators: used between list items, there is a space after the comma */

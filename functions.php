@@ -190,11 +190,12 @@ function sempress_reading_time()
  *
  * @param bool $include_reading_time Whether to include estimated reading time (default is true).
  * @param bool $include_author       Whether to include author information (default is true).
+ * @param bool $include_category     Whether to include post category (default is true).
  * @param bool $echo                 Whether to echo the generated content (default is true).
  *
  * @return string|null Generated HTML content if $echo is false, or null if $echo is true.
  */
-function sempress_posted_on($include_reading_time = true, $include_author = true, $echo = true)
+function sempress_posted_on($include_reading_time = true, $include_author = true, $include_category = true, $echo = true)
 {
   $output = '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span>';
   $output .= '<a href="' . esc_url(get_permalink()) . '" title="' . esc_attr(get_the_time()) . '" rel="bookmark" class="url u-url">';
@@ -212,6 +213,17 @@ function sempress_posted_on($include_reading_time = true, $include_author = true
     $output .= '<span class="author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">';
     $output .= $author_avatar . ' <a class="url uid u-url u-uid fn p-name" href="' . $author_url . '" title="' . $author_name . '" rel="author" itemprop="url">';
     $output .= '<span itemprop="name">' . $author_display_name . '</span></a></span></address>';
+  }
+
+  if ($include_category) {
+    $categories_list = get_the_category_list(__(' <svg class="bi"><use xlink:href="#fa-slash-foward-light" /></svg>', 'sempress'));
+    if ($categories_list) {
+      $output .= ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg>';
+      $output .= '<svg class="bi"><title>Category</title><use xlink:href="#fa-folder" /></svg>';
+      $output .= ' <span class="cat-links">';
+      $output .= $categories_list;
+      $output .= '</span>';
+    }
   }
 
   if ($include_reading_time) {
