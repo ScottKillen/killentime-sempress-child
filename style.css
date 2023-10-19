@@ -87,7 +87,6 @@ article.attachment {
   box-shadow: inset rgba(0, 0, 0, 0.2) 0 64px 64px 16px;
 }
 
-
 .widget {
   margin-bottom: 2em;
 }
@@ -143,7 +142,7 @@ article.attachment {
 }
 
 header .entry-meta {
-  padding-bottom:0;
+  padding-bottom: 0;
 }
 
 .entry-content {
@@ -217,6 +216,10 @@ input[type='color'] {
   width: 100%;
 }
 
+.entry-media img.alignright {
+  margin-right: 0;
+}
+
 .format-chat .chat-content p {
   border-radius: 18px;
   border: solid 1px;
@@ -243,15 +246,10 @@ input[type='color'] {
   padding-top: 34px;
 }
 
-.format-audio .entry-media img {
-  margin-top: 0;
-}
-
 .format-audio iframe {
   margin-top: 1em;
 }
 
-.format-audio .entry-media,
 .format-gallery .entry-media {
   width: 100px;
 }

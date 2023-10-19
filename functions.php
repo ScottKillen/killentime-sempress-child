@@ -188,13 +188,13 @@ function sempress_reading_time()
  * - Author information (optional)
  * - Estimated reading time (optional)
  *
- * @param bool $echo                 Whether to echo the generated content (default is true).
- * @param bool $include_author       Whether to include author information (default is true).
  * @param bool $include_reading_time Whether to include estimated reading time (default is true).
+ * @param bool $include_author       Whether to include author information (default is true).
+ * @param bool $echo                 Whether to echo the generated content (default is true).
  *
  * @return string|null Generated HTML content if $echo is false, or null if $echo is true.
  */
-function sempress_posted_on($echo = true, $include_author = true, $include_reading_time = true)
+function sempress_posted_on($include_reading_time = true, $include_author = true, $echo = true)
 {
   $output = '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span>';
   $output .= '<a href="' . esc_url(get_permalink()) . '" title="' . esc_attr(get_the_time()) . '" rel="bookmark" class="url u-url">';

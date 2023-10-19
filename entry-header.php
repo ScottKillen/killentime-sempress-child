@@ -11,7 +11,10 @@
 
 		<?php if ('post' === get_post_type()) : ?>
 			<div class="entry-meta">
-				<?php sempress_posted_on(); ?>
+				<?php
+				$show_reading_time = !in_array(get_post_format(), array('aside', 'audio'));
+				sempress_posted_on($show_reading_time);
+				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
