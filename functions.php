@@ -157,10 +157,16 @@ function custom_post_excerpt($post_id = null)
   echo '<a href="' . esc_url(get_permalink(($post->ID))) . '" class="u-url more-link icon-link gap-1 icon-link-hover">Continue reading...<svg class="bi"><use xlink:href="#fa-chevron-right"/></svg></a>';
 }
 
-function sempress_reading_time()
+function sempress_reading_time($post_id = null)
 {
+  if ($post_id === null) {
+    $post_id = get_the_ID(); // Get the current post ID in the loop
+  }
+
+  $post = get_post($post_id);
+
   // Getting the post content and stripping HTML tags
-  $content = strip_tags(get_the_content());
+  $content = strip_tags(get_post_field('post_content', $post->ID));
   $content = html_entity_decode($content);
 
   // Getting the number of words in the content
