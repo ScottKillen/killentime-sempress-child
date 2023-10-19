@@ -12,7 +12,7 @@
 		<?php if ('post' === get_post_type()) : ?>
 			<div class="entry-meta">
 				<?php
-			$show_reading_time = !in_array(get_post_format(), array('aside', 'audio', 'chat'));
+			$show_reading_time = !in_array(get_post_format(), array('aside', 'audio', 'chat', 'gallery'));
 				sempress_posted_on($show_reading_time);
 				?>
 			</div><!-- .entry-meta -->

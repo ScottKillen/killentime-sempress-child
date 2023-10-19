@@ -203,6 +203,10 @@ input[type='color'] {
   display: none;
 }
 
+.entry-content {
+  padding-top: 15px;
+}
+
 .entry-media img.alignright {
   margin-right: 0;
 }
