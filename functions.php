@@ -203,7 +203,7 @@ function sempress_reading_time($post_id = null)
  */
 function sempress_posted_on($include_reading_time = true, $include_author = true, $include_category = true, $echo = true)
 {
-  $output = '<span class="sep"><svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> </span>';
+  $output = '<svg class="bi"><title>Posted on</title><use xlink:href="#fa-calendar"/></svg> ';
   $output .= '<a href="' . esc_url(get_permalink()) . '" title="' . esc_attr(get_the_time()) . '" rel="bookmark" class="url u-url">';
   $output .= '<time class="entry-date updated published dt-updated dt-published" datetime="' . esc_attr(get_the_date('c')) . '" itemprop="dateModified datePublished">';
   $output .= esc_html(get_the_date()) . '</time></a>';
@@ -215,7 +215,7 @@ function sempress_posted_on($include_reading_time = true, $include_author = true
     $author_display_name = esc_html(get_the_author());
 
     $output .= ' <svg class="bi"><use xlink:href="#fa-pipe" /></svg>';
-    $output .= '<address class="byline"><span class="sep"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg></span>';
+    $output .= '<address class="byline"><svg class="bi"><title>By</title><use xlink:href="#fa-user-large" /></svg> ';
     $output .= '<span class="author p-author vcard hcard h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">';
     $output .= $author_avatar . ' <a class="url uid u-url u-uid fn p-name" href="' . $author_url . '" title="' . $author_name . '" rel="author" itemprop="url">';
     $output .= '<span itemprop="name">' . $author_display_name . '</span></a></span></address>';
