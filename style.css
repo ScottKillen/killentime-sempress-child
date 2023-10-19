@@ -139,6 +139,11 @@ nav {
   font-family: var(--font-ui);
 }
 
+.format-quote .entry-content blockquote:first-child {
+    background-color: transparent;
+    border-bottom: none;
+}
+
 .entry-content,
 .entry-summary,
 .entry-title {
@@ -214,7 +219,8 @@ input[type='color'] {
 .format-chat:before,
 .format-gallery:before,
 .format-image:before,
-.format-link:before {
+.format-link:before,
+.format-quote:before {
   content: '';
   display: none;
 }
