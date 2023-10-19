@@ -154,6 +154,7 @@ header .entry-meta {
 .entry-meta a {
   color: var(--color-tx-muted);
   transition: color 1s;
+  font-family: var(--font-ui);
 }
 
 .entry-content a,

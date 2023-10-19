@@ -2,7 +2,7 @@
 
 <footer class="entry-meta">
 	<?php
-	if (in_array(get_post_format(), array('link', 'status', 'quote')) || !get_the_title()) {
+	if (in_array(get_post_format(), array('status', 'quote')) || !get_the_title()) {
 		sempress_posted_on();
 	} else {
 		_e('Posted', 'sempress');
