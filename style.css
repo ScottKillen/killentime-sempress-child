@@ -170,6 +170,14 @@ header .entry-meta {
   color: var(--color-bl-hover);
 }
 
+.sharedaddy {
+  margin-top: 20px;
+}
+
+.sd-sharing {
+  margin-bottom: 0 !important;
+}
+
 textarea,
 input[type='text'],
 input[type='password'],
