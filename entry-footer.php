@@ -1,7 +1,6 @@
 <?php defined('ABSPATH') || exit; ?>
 
 <footer class="entry-meta">
-	<hr />
 	<?php
 	if (in_array(get_post_format(), array('link', 'status', 'quote')) || !get_the_title()) {
 		sempress_posted_on();

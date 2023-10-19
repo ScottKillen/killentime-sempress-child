@@ -24,6 +24,7 @@ defined('ABSPATH') || exit;
 	<?php
 	endif;
 	?>
+	<hr />
 
 	<?php get_template_part('entry', 'footer'); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

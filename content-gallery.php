@@ -16,6 +16,7 @@ defined('ABSPATH') || exit;
 			<?php wp_link_pages(array('before' => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'sempress') . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>')); ?>
 		</div><!-- .entry-content -->
 	<?php endif; ?>
+	<hr />
 
 	<?php get_template_part('entry', 'footer'); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
