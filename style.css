@@ -199,7 +199,8 @@ input[type='color'] {
 .format-audio:before,
 .format-chat:before,
 .format-gallery:before,
-.format-image:before {
+.format-image:before,
+.format-link:before{
   content: '';
   display: none;
 }
